@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Jaan — Happiest Birthday</title>
+<meta name="description" content="A little corner of the world made for Jaan.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root{
+  --cream:#f5eee5;
+  --paper:#fbf7f1;
+  --ink:#2b2421;
+  --muted:#796c63;
+  --rose:#b98272;
+  --line:rgba(43,36,33,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+section{position:relative}
+.serif{font-family:"Cormorant Garamond",serif}
+.nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;z-index:15;mix-blend-mode:multiply}
+.nav .mark{font-family:"Cormorant Garamond";font-size:25px}
+.nav .dot{width:6px;height:6px;border-radius:50%;background:var(--rose)}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:100px 7vw}
+.hero-inner{max-width:1050px}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.hero h1{font-size:clamp(58px,10vw,150px);font-weight:300;line-height:.82;letter-spacing:-.055em;margin:0}
+.hero h1 em{font-weight:400;font-style:italic}
+.hero .sub{max-width:600px;margin:38px auto 0;color:var(--muted);line-height:1.8;font-size:14px}
+.scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;gap:10px;align-items:center}
+.scroll:after{content:"";width:1px;height:42px;background:var(--rose);animation:line 2s infinite}
+@keyframes line{0%,100%{transform:scaleY(.35);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.intro{padding:16vh 9vw 18vh;display:grid;grid-template-columns:1fr 1.35fr;gap:9vw;align-items:center}
+.kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose)}
+.intro h2,.love h2,.special h2,.letter h2{font-family:"Cormorant Garamond";font-weight:300;font-size:clamp(48px,7vw,100px);line-height:.9;letter-spacing:-.04em;margin:18px 0 28px}
+.copy{font-size:16px;line-height:1.9;color:#5f554f;max-width:610px}
+.photo{overflow:hidden;background:#ded1c4;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82)}
+.photo.placeholder{display:grid;place-items:center;color:#7d6f66;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+.tall{height:min(70vh,700px)}
+.memory{padding:10vh 7vw 18vh}
+.memory-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:55px}
+.memory h2{font-family:"Cormorant Garamond";font-weight:300;font-size:clamp(52px,8vw,112px);line-height:.85;margin:14px 0 0;letter-spacing:-.05em}
+.memory-note{max-width:280px;color:var(--muted);font-size:12px;line-height:1.7}
+.memory-grid{display:grid;grid-template-columns:1fr .72fr;gap:8vw;align-items:center}
+.memory-image{height:min(75vh,760px)}
+.memory-quote{font-family:"Cormorant Garamond";font-size:clamp(34px,4.2vw,65px);line-height:1.02;font-weight:300}
+.memory-quote small{display:block;font-family:"DM Sans";font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-top:30px}
+.love{padding:14vh 9vw}
+.love-grid{margin-top:8vh;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.love-card{background:var(--cream);padding:6vw 4vw;min-height:300px;transition:transform .6s cubic-bezier(.2,.7,.2,1),background .6s}
+.love-card:hover{transform:translateY(-8px);background:var(--paper)}
+.num{font-size:10px;color:var(--rose);letter-spacing:.18em}
+.love-card h3{font-family:"Cormorant Garamond";font-size:42px;font-weight:400;margin:50px 0 15px}
+.love-card p{color:var(--muted);line-height:1.8;font-size:14px;max-width:430px}
+.special{padding:15vh 7vw}
+.special-head{max-width:760px;margin-bottom:8vh}
+.special-orbit{min-height:80vh;position:relative;display:grid;place-items:center}
+.special-photo{width:min(48vw,560px);aspect-ratio:4/5;border-radius:2px;overflow:hidden;box-shadow:0 30px 90px rgba(80,50,40,.12)}
+.special-photo .photo{height:100%}
+.orbit-word{position:absolute;font-family:"Cormorant Garamond";font-size:clamp(22px,3vw,40px);font-style:italic;color:#594c45;transition:transform .5s}
+.w1{top:9%;left:8%}.w2{top:25%;right:7%}.w3{bottom:23%;left:5%}.w4{bottom:8%;right:10%}
+.little{padding:16vh 9vw;background:var(--paper)}
+.little h2{font-family:"Cormorant Garamond";font-size:clamp(50px,7vw,95px);font-weight:300;line-height:.9;margin:15px 0 8vh}
+.little-list{max-width:900px;margin:auto}
+.little-row{display:grid;grid-template-columns:70px 1fr;gap:25px;padding:32px 0;border-top:1px solid var(--line)}
+.little-row:last-child{border-bottom:1px solid var(--line)}
+.little-row .idx{font-size:10px;letter-spacing:.15em;color:var(--rose)}
+.little-row p{font-family:"Cormorant Garamond";font-size:clamp(26px,3vw,42px);margin:0;line-height:1.05}
+.letter{padding:18vh 10vw 15vh;text-align:center}
+.letter-inner{max-width:850px;margin:auto}
+.letter p{font-family:"Cormorant Garamond";font-size:clamp(26px,3.4vw,48px);line-height:1.25;font-weight:300}
+.signature{margin-top:60px;color:var(--muted);font-family:"Cormorant Garamond";font-size:28px;font-style:italic}
+.final{min-height:100svh;display:grid;place-items:center;text-align:center;padding:100px 7vw;overflow:hidden}
+.final .glow{position:absolute;width:55vw;height:55vw;border-radius:50%;background:rgba(185,130,114,.13);filter:blur(80px)}
+.final-content{position:relative;z-index:2}
+.final h2{font-family:"Cormorant Garamond";font-size:clamp(62px,11vw,155px);font-weight:300;line-height:.8;letter-spacing:-.055em;margin:20px 0 35px}
+.lyric{font-family:"Cormorant Garamond";font-style:italic;font-size:clamp(24px,3vw,43px);line-height:1.15;max-width:900px;margin:55px auto 0}
+.replay{margin-top:70px;border:1px solid var(--line);padding:14px 22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;cursor:pointer;color:var(--ink)}
+.blur-in{opacity:0;filter:blur(18px);transform:translateY(35px);transition:opacity 1.2s ease,filter 1.2s ease,transform 1.2s ease}
+.blur-in.show{opacity:1;filter:blur(0);transform:none}
+.reveal-photo{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.show .reveal-photo{transform:scale(1)}
+@media(max-width:760px){
+ .nav{height:60px}.intro{grid-template-columns:1fr;padding:13vh 7vw}.tall{height:65vh}
+ .memory-grid{grid-template-columns:1fr}.memory-image{height:60vh}.memory-note{margin-top:25px}
+ .love-grid{grid-template-columns:1fr}.love-card{min-height:260px;padding:50px 30px}
+ .special-photo{width:72vw}.orbit-word{font-size:22px}.w1{left:0}.w2{right:0}.w3{left:0}.w4{right:0}
+ .little-row{grid-template-columns:35px 1fr}.letter{padding-left:7vw;padding-right:7vw}
+}
+</style>
+</head>
+<body id="top">
+<nav class="nav"><div class="mark">J</div><div class="dot"></div></nav>
+
+<section class="hero">
+  <div class="hero-inner blur-in">
+    <div class="eyebrow">A little corner of the world — for Jaan</div>
+    <h1>Happiest<br><em>birthday</em><br>to the love<br>of my life.</h1>
+    <p class="sub">Some things are too beautiful to fit inside a message. So I made you a little place instead.</p>
+  </div>
+  <div class="scroll">Begin</div>
+</section>
+
+<section class="intro">
+  <div class="blur-in">
+    <div class="kicker">01 — You</div>
+    <h2>My little<br>ball of light.</h2>
+    <p class="copy">You have this infectious, positive, child-like energy that somehow makes the hardest things look effortless. You are childish, yet wise. Soft, yet strong. You wish well for everyone around you. And somehow, just one glance at you makes life feel a little easier.</p>
+  </div>
+  <div class="photo tall blur-in"><img src="photos/hero.jpg" alt="Jaan" onerror="this.style.display='none'"><div class="photo placeholder">Replace with her favourite portrait</div></div>
+</section>
+
+<section class="memory">
+  <div class="memory-top blur-in">
+    <div><div class="kicker">02 — Five minutes</div><h2>Worth<br>the wait.</h2></div>
+    <div class="memory-note">Some of my favourite memories weren't grand dates. They were the tiny, sneaky ones.</div>
+  </div>
+  <div class="memory-grid">
+    <div class="photo memory-image blur-in"><img src="photos/allen.jpg" alt="A memory" onerror="this.style.display='none'"><div class="photo placeholder">Add an Allen memory</div></div>
+    <div class="memory-quote blur-in">“Waiting eagerly just to see you for five minutes was somehow enough to make an entire day worth it.”<small>— for my jaan</small></div>
+  </div>
+</section>
+
+<section class="love">
+  <div class="blur-in">
+    <div class="kicker">03 — Why I love her</div>
+    <h2>Because<br>you are you.</h2>
+  </div>
+  <div class="love-grid">
+    <article class="love-card blur-in"><span class="num">01</span><h3>Your energy.</h3><p>That shiny, cute, impossible-to-ignore ball of energy. Your wiggling dance. Your laughter. The way you can turn an ordinary moment into something I want to remember.</p></article>
+    <article class="love-card blur-in"><span class="num">02</span><h3>Your heart.</h3><p>You genuinely wish well for the people around you. Your intentions are pure. You don't need an audience to be kind, and I think that says everything about you.</p></article>
+    <article class="love-card blur-in"><span class="num">03</span><h3>Your beautiful contradiction.</h3><p>You are childish and wise at the same time. Cute enough to make me smile for no reason, and mature enough to make me look at myself differently.</p></article>
+    <article class="love-card blur-in"><span class="num">04</span><h3>Your beauty.</h3><p>And yes, jaan, I have to say it. Your beauty is undeniable. But the strange thing is, the more I know you, the less your beauty feels like the most beautiful thing about you.</p></article>
+  </div>
+</section>
+
+<section class="special">
+  <div class="special-head blur-in">
+    <div class="kicker">04 — What makes you special</div>
+    <h2>There isn't a category<br>for someone like you.</h2>
+    <p class="copy">You can't really be categorised with ordinary women. You are your own little contradiction — a shiny cute ball of energy, somehow carrying a depth and maturity that keeps surprising me.</p>
+  </div>
+  <div class="special-orbit">
+    <span class="orbit-word w1">childlike</span>
+    <span class="orbit-word w2">pure</span>
+    <span class="orbit-word w3">wise</span>
+    <span class="orbit-word w4">beautiful</span>
+    <div class="special-photo blur-in"><div class="photo"><img src="photos/special.jpg" alt="Jaan" onerror="this.style.display='none'"><div class="photo placeholder">Add a favourite photo</div></div></div>
+  </div>
+</section>
+
+<section class="little">
+  <div class="blur-in"><div class="kicker">05 — The little things</div><h2>The things I<br>never want to forget.</h2></div>
+  <div class="little-list">
+    <div class="little-row blur-in"><div class="idx">01</div><p>The childish side of you that makes me smile without even trying.</p></div>
+    <div class="little-row blur-in"><div class="idx">02</div><p>Your wiggling dance — one of those tiny things that somehow became one of my favourite things in the world.</p></div>
+    <div class="little-row blur-in"><div class="idx">03</div><p>The way a single glance at you can make life seem easier.</p></div>
+    <div class="little-row blur-in"><div class="idx">04</div><p>The fact that you never had to seek attention. Somehow, you were the only person I couldn't force myself to look away from.</p></div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="photo tall blur-in"><img src="photos/us.jpg" alt="Us" onerror="this.style.display='none'"><div class="photo placeholder">Add a photo of you two</div></div>
+  <div class="blur-in">
+    <div class="kicker">06 — What you changed</div>
+    <h2>You refined<br>me.</h2>
+    <p class="copy">I always had the wrong notion of myself, until I met you. You made me know myself better. You made me more secure, more sensitive, more human — a better person overall.</p>
+    <p class="copy">You are the best, and you so deserve the best. So I'm trying, every day, to become the person you deserve.</p>
+  </div>
+</section>
+
+<section class="letter">
+  <div class="letter-inner blur-in">
+    <div class="kicker">07 — A letter to my jaan</div>
+    <h2>For you.</h2>
+    <p>I met you by God's grace. I had known you since fifth standard, but somewhere around eleventh standard, from our first proper introduction, something in me simply changed.</p>
+    <p>You never asked for attention. You never needed to. I just couldn't make myself look away from you.</p>
+    <p>And today, when I look at you, I don't just see the girl I fell in love with. I see the person who helped me become someone I am happier to be.</p>
+    <p>Thank you for being exactly who you are, jaan. Please never lose that little girl inside you — the one who dances, laughs, loves purely and makes difficult things look easy.</p>
+    <div class="signature">With all my heart,<br>always.</div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="glow"></div>
+  <div class="final-content blur-in">
+    <div class="eyebrow">For my Jaan</div>
+    <h2>Happy Birthday.</h2>
+    <div class="lyric">“KITNA HU CHAHTA , KAISE KAHU TUJHE?<br>SAYA TERA DIKHE, TOH CHUUMA LU USSE.”</div>
+    <button class="replay" onclick="window.scrollTo({top:0,behavior:'smooth'})">Replay our little story</button>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+},{threshold:.13});
+document.querySelectorAll('.blur-in').forEach(el=>observer.observe(el));
+
+let lastY=window.scrollY;
+let ticking=false;
+function motion(){
+  const dy=Math.min(Math.abs(window.scrollY-lastY),22);
+  document.querySelectorAll('.photo img').forEach(img=>{
+    img.style.transform=`scale(${1.02 + dy*.0015})`;
+    img.style.filter=`saturate(.82) blur(${dy*.08}px)`;
+  });
+  lastY=window.scrollY;
+  ticking=false;
+}
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(motion);ticking=true;}},{passive:true});
+</script>
+</body>
+</html>
